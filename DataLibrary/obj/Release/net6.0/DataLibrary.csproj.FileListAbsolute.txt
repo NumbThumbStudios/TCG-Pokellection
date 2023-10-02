@@ -1,0 +1,12 @@
+H:\Capstone Project\DataLibrary\bin\Release\net6.0\DataLibrary.deps.json
+H:\Capstone Project\DataLibrary\bin\Release\net6.0\DataLibrary.dll
+H:\Capstone Project\DataLibrary\bin\Release\net6.0\DataLibrary.pdb
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.csproj.AssemblyReference.cache
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.GeneratedMSBuildEditorConfig.editorconfig
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.AssemblyInfoInputs.cache
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.AssemblyInfo.cs
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.csproj.CoreCompileInputs.cache
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.dll
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\refint\DataLibrary.dll
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.pdb
+H:\Capstone Project\DataLibrary\obj\Release\net6.0\ref\DataLibrary.dll

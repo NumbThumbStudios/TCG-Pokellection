@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TCGPokellection.Controls.LoadingControl">
+
+
+    <Grid RowDefinitions="*,*,*"
+          ColumnDefinitions="*,*,*"
+          BackgroundColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"
+          Opacity=".8">
+        <ActivityIndicator Grid.Row="1"
+                           Grid.Column="1" 
+                           IsRunning="True"
+                           Color="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                           Opacity="1"
+                           x:Name="LoadingIdicator"/>
+    </Grid>
+    
+    
+</ContentView>
