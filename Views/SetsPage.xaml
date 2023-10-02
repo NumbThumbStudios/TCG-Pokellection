@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
+             xmlns:controls="clr-namespace:TCGPokellection.Controls"
+             x:Class="TCGPokellection.Views.SetsPage"
+             Title="Browse">
+
+
+    <Grid RowDefinitions="Auto, *">
+        <!--COLLECTION VIEW FOR ALL SETS-->
+        <CollectionView Grid.Row="1" 
+                        x:Name="SetsCollectionView"
+                        ItemsSource="{Binding Sets}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedItem}"
+                        Margin="4">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 SnapPointsType="None"
+                                 Span="1"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:SetsModel">
+                    <Border StrokeShape="RoundRectangle 10"
+                            StrokeThickness="0"
+                            Margin="4">
+                        <Grid ColumnDefinitions="*,.75*"
+                              RowDefinitions="*,*">
+                            <Label Grid.Row="0" 
+                                   Grid.RowSpan="2"
+                                   Grid.Column="0"
+                                   Margin="20,0,0,0"
+                                   TextColor="{AppThemeBinding Dark={StaticResource White}, Light={StaticResource Black}}"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="StartAndExpand"
+                                   VerticalOptions="Center"
+                                   Text="{Binding set_name}"/>
+                            <Image Grid.Column="1" 
+                                   Grid.Row="0"
+                                   Grid.RowSpan="2"
+                                   Margin="20"
+                                   HeightRequest="64">
+                                <Image.Source>
+                                    <UriImageSource Uri="{Binding set_image}"
+                                                    CachingEnabled="True"
+                                                    CacheValidity="10:10:10:10"/>
+                                </Image.Source>
+                            </Image>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--LOADING INDICATOR-->
+        <controls:LoadingControl Grid.Row="0"
+                                 Grid.RowSpan="3"
+                                 x:Name="LoadingIndicator"/>
+    </Grid>
+
+
+</ContentPage>

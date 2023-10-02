@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
+             xmlns:controls="clr-namespace:TCGPokellection.Controls"
+             x:Class="TCGPokellection.Views.SearchPage"
+             Title="Search">
+
+
+    <Grid RowDefinitions="Auto,Auto,*"
+          Margin="20,20,20,5">
+        
+        <!--SEARCH BAR-->
+        <Border StrokeShape="RoundRectangle 15,15,15,15"
+                StrokeThickness="1"
+                BackgroundColor="Transparent"
+                Padding="5,-8,5,-8">
+            <Grid Grid.Row="0"
+                  ColumnDefinitions="Auto, *, Auto">
+                <Image Grid.Column="0" 
+                       HeightRequest="18" 
+                       VerticalOptions="Center"
+                       Source="{AppThemeBinding Light={StaticResource search_icon_light_theme}, Dark={StaticResource search_icon_dark_theme}}"/>
+                <Entry Grid.Column="1"
+                       x:Name="SearchParamsEntry" 
+                       Placeholder="Search..." 
+                       ReturnType="Search"
+                       TextChanged="SearchParamsEntry_TextChanged"
+                       Completed="SearchParamsEntry_Completed"/>
+                <Image Grid.Column="2" 
+                       Margin="0,0,5,0"
+                       x:Name="ClearSearchText"
+                       HeightRequest="16" 
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       Source="{AppThemeBinding Light={StaticResource cleartext_icon_light_theme}, Dark={StaticResource cleartext_icon_dark_theme}}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ClearSearchText_Tapped"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+
+        <!--NUMBER OF RESULTS-->
+        <Label Grid.Row="1"
+               FontSize="Micro"
+               Margin="0,5,0,5"
+               HorizontalOptions="End"
+               Text="{Binding NumberOfResults}"/>
+
+        <!--RESULTS SECTION-->
+        <Grid Grid.Row="2"
+              Margin="0,0,0,10">
+            
+            <!--NO RESULTS-->
+            <VerticalStackLayout x:Name="NoResultsLayout" 
+                                 VerticalOptions="Center">
+                <Label Text="Search Database" 
+                       FontSize="Large"
+                       TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                       HorizontalOptions="Center"/>
+                <Label Text="Enter a search term above to search all cards from our database" 
+                       FontSize="Micro"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!--COLLECTION VIEW OF CARDS-->
+            <CollectionView x:Name="SearchResults" 
+                            ItemsSource="{Binding Cards}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedItem}"
+                            Scrolled="SearchResults_Scrolled"
+                            ItemsUpdatingScrollMode="KeepScrollOffset">
+
+                <!--HEADER-->
+                <CollectionView.Header>
+                    <Border HeightRequest="8"
+                            BackgroundColor="Transparent"
+                            StrokeThickness="0"/>
+                </CollectionView.Header>
+                
+                <!--ITEM TEMPLATE-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:CardsModel">
+                        <Border Margin="0,10,0,10"
+                                StrokeThickness="0"
+                                BackgroundColor="Transparent">
+                            <Grid RowDefinitions="Auto,Auto"
+                                  ColumnDefinitions="24, *, 24">
+
+                                <Border Grid.Row="0"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        StrokeShape="RoundRectangle 2">
+                                    <Image Source="pokemon_card_back.png"/>
+                                </Border>
+                                
+                                <Border Grid.Row="0"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        StrokeThickness="0"
+                                        BackgroundColor="Transparent"
+                                        StrokeShape="RoundRectangle 2">
+                                    <Image Source="{Binding tcg_cards_image_url}"/>
+                                </Border>
+                                
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       Padding="8,0,0,0"
+                                       MaxLines="1"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding tcg_cards_clean_name}"/>
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       FontSize="Micro"
+                                       Padding="8,0,0,0"
+                                       Text="{Binding CardCollectionData}" 
+                                       MaxLines="1" 
+                                       LineBreakMode="TailTruncation"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <!--FOOTER-->
+                <CollectionView.Footer>
+                    <Border HeightRequest="128"
+                            BackgroundColor="Transparent"
+                            StrokeThickness="0">
+                        <Grid>
+                            <Label x:Name="SearchResultsFooter"
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                           Margin="10"
+                           HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                            <!--LOADING INDICATOR-->
+                            <controls:LoadingControl 
+                                 x:Name="Search_LoadingIndicator"
+                                 IsVisible="False"/>
+                        </Grid>
+                    </Border>
+
+                </CollectionView.Footer>
+            </CollectionView>
+        </Grid>
+
+        <!--LOADING INDICATOR-->
+        <controls:LoadingControl Grid.Row="0"
+                                 Grid.RowSpan="3"
+                                 x:Name="LoadingIndicator"
+                                 IsVisible="False"/>
+    </Grid>
+    
+    
+</ContentPage>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
+             xmlns:controls="clr-namespace:TCGPokellection.Controls"
+             x:Class="TCGPokellection.Views.CardsPage"
+             Title="Cards">
+
+
+    <Grid RowDefinitions="Auto, *">
+
+        <!--HEADER: SORT, FILTER, ETC.-->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="*, *, .5*"
+              Padding="20,0,4,0">
+            <Picker Title="Sort" 
+                    x:Name="CardsSortPicker"
+                    SelectedIndex="{Binding Sort_SelectedItem, Mode=TwoWay}"
+                    TitleColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                    TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                    BackgroundColor="Transparent"
+                    Visual="Default">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Card Number: Low to High</x:String>
+                        <x:String>Card Number: High to Low</x:String>
+                        <x:String>Product Name: A to Z</x:String>
+                        <x:String>Product Name: Z to A</x:String>
+                        <x:String>Price: Low to High</x:String>
+                        <x:String>Price: High to Low</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </Grid>
+
+        <!--COLLECTION VIEW OF CARDS-->
+        <CollectionView Grid.Row="1"
+                        x:Name="CardsCollectionView"
+                        ItemsSource="{Binding Cards}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedItem}"
+                        Margin="20,10,20,0"
+                        ItemsUpdatingScrollMode="KeepScrollOffset">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 SnapPointsType="None"
+                                 Span="3"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:CardsModel">
+                    <Border StrokeThickness="2"
+                            Stroke="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                            StrokeShape="RoundRectangle 4"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Theme_Light2}, Dark={StaticResource Theme_Dark2}}"
+                            Margin="0">
+
+                        <Grid RowDefinitions="Auto, *, Auto">
+                            <Image Grid.Row="0"
+                                   Grid.RowSpan="3" 
+                                   Source="pokemon_card_back.png"/>
+
+                            <Image Grid.Row="0"
+                                   Grid.RowSpan="3" 
+                                   Source="{Binding tcg_cards_image_url}"/>
+
+
+                            <Border Grid.Row="2"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                    StrokeThickness="0"
+                                    Opacity="1"
+                                    Margin="-2,0,-2,16">
+                                <Label Text="{Binding tcg_CardsPage_DisplayName}"
+                                       Padding="4,2" 
+                                       FontAutoScalingEnabled="True"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Fill" 
+                                       FontSize="8"
+                                       FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                                       LineBreakMode="TailTruncation" MaxLines="1">
+                                </Label>
+                            </Border>
+
+                            <ContentView Grid.Row="2"
+                                         BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                                    HeightRequest="2"
+                                    Margin="-8"/>
+
+                            <ContentView Grid.Row="2"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                                    HeightRequest="2"
+                                    Margin="-8,-14,-8,16"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--LOADING INDICATOR-->
+        <controls:LoadingControl Grid.Row="0"
+                                 Grid.RowSpan="3"
+                                 x:Name="LoadingIndicator"/>
+
+    </Grid>
+    
+    
+</ContentPage>

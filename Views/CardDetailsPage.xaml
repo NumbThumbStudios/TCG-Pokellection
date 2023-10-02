@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
+             x:Class="TCGPokellection.Views.CardDetailsPage"
+             Shell.NavBarIsVisible="False"
+             Title="CardDetailsPage">
+
+
+    <Grid>
+        <CarouselView ItemsSource="{Binding Cards}"
+                      x:Name="CardDetailsCarouselView"
+                      Loop="False"
+                      CurrentItem="{Binding CardSelected}"
+                      Position="{Binding Position, Mode=OneWay}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="models:CardsModel">
+                    <ScrollView VerticalScrollBarVisibility="Never">
+                        <VerticalStackLayout>
+                            <!--CARD IMAGE-->
+                            <Grid RowDefinitions="Auto,*" 
+                                  ColumnDefinitions=".25*,*,.25*">
+                                <Border Grid.Row="1" 
+                                        Grid.Column="1" 
+                                        HeightRequest="222"
+                                        WidthRequest="158"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 10,10,10,10"
+                                        BackgroundColor="Transparent"
+                                        Margin="0,20,0,10">
+                                    <Border.Shadow>
+                                        <Shadow Brush="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                                Offset="10,10"
+                                                Radius="20"
+                                                Opacity=".4"/>
+                                    </Border.Shadow>
+                                    <Image Grid.Row="0"
+                                           Grid.RowSpan="3"
+                                           Source="pokemon_card_back.png"/>
+                                </Border>
+                                <Border Grid.Row="1" 
+                                        Grid.Column="1" 
+                                        HeightRequest="224"
+                                        WidthRequest="160"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 10,10,10,10"
+                                        BackgroundColor="Transparent"
+                                        Margin="0,20,0,10">
+                                    <Border.Shadow>
+                                        <Shadow Brush="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                                Offset="10,10"
+                                                Radius="20"
+                                                Opacity=".4"/>
+                                    </Border.Shadow>
+                                    <Image Source="{Binding tcg_cards_image_url}"/>
+                                </Border>
+                            </Grid>
+
+                            <!--DETAILS-->
+                            <Border Margin="20,10"
+                                    Padding="10"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0">
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto"
+                                      ColumnDefinitions="*,*">
+                                    <!--ROW: 0-->
+                                    <Label Text="Details"
+                                           Margin="0,0,0,4"
+                                           FontAttributes="Bold"
+                                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+                                    <Border Grid.Column="1"
+                                            Grid.Row="0"
+                                            StrokeShape="RoundRectangle 10"
+                                            StrokeThickness="0">
+                                    </Border>
+
+                                    <!--ROW: 1-->
+                                    <Label Grid.Column="0" 
+                                           Grid.Row="1"
+                                           FontAttributes="Bold"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding tcg_cards_clean_name}"/>
+                                    <Label Grid.Column="1"
+                                           Grid.Row="1"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding tcg_cards_cardNumber}"/>
+
+                                    <!--ROW: 2-->
+                                    <Label Grid.Column="0"
+                                           Grid.Row="2"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding CardSet}"/>
+                                    <Label Grid.Column="1"
+                                           Grid.Row="2"
+                                           HorizontalOptions="End"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding CardExpansion}"/>
+
+                                    <!--ROW: 3-->
+                                    <Label Grid.Column="0"
+                                           Grid.Row="3"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding tcg_cards_rarity}"/>
+                                    <Label Grid.Column="1"
+                                           Grid.Row="3"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding tcg_cards_subType}"/>
+                                </Grid>
+                            </Border>
+
+                            <!--PRICE/MARKETPLACE-->
+                            <Border Margin="20,10"
+                                    Padding="10"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0">
+                                <Grid RowDefinitions="Auto,Auto">
+                                    <Image Source="tcgplayer_icon.png"
+                                           HorizontalOptions="Start"
+                                           HeightRequest="24"/>
+
+                                    <!--PRICES-->
+                                    <VerticalStackLayout Grid.Row="1">
+                                        <Grid ColumnDefinitions="*,*">
+                                            <Label Text="Low"/>
+                                            <Label Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding PriceLow}"/>
+                                        </Grid>
+
+                                        <Grid ColumnDefinitions="*,*">
+                                            <Label Text="Mid"/>
+                                            <Label Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding PriceMid}"/>
+                                        </Grid>
+
+                                        <Grid ColumnDefinitions="*,*">
+                                            <Label Text="High"/>
+                                            <Label Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding PriceHigh}"/>
+                                        </Grid>
+
+                                        <Grid ColumnDefinitions="*,*">
+                                            <Label Text="TCG Direct"/>
+                                            <Label Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding PriceDirectLow}"/>
+                                        </Grid>
+
+                                        <Grid ColumnDefinitions="*,*">
+                                            <Label Text="Market Price"/>
+                                            <Label Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding PriceMarket}"/>
+                                        </Grid>
+
+                                        <Grid RowDefinitions="*,*" 
+                                              ColumnDefinitions="*,*,*">
+                                            <Label Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Text="Last Updated"
+                                                   FontSize="Micro"
+                                                   VerticalOptions="End"/>
+                                            <Label Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Grid.ColumnSpan="2"
+                                                   Text="{Binding tcg_cards_last_sync}"
+                                                   FontSize="Micro"/>
+                                            <Border Grid.Row="0" 
+                                                    Grid.RowSpan="2"
+                                                    Grid.Column="2" 
+                                                    BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                                    Margin="0,10,6,5"
+                                                    StrokeShape="RoundRectangle 6"
+                                                    StrokeThickness="0">
+                                                <Border.Shadow>
+                                                    <Shadow Brush="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                                            Offset="6,6"
+                                                            Radius="4"
+                                                            Opacity=".5"/>
+                                                </Border.Shadow>
+                                                <Border.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="ShopNow_Tapped"/>
+                                                </Border.GestureRecognizers>
+                                                <Label Text="Shop Now"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark3}}"
+                                                       Margin="5"
+                                                       HorizontalOptions="Center"/>
+                                            </Border>
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+
+                            <!--COLLECTION-->
+                            <Border Margin="20,10"
+                                    Padding="10"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0">
+                                <Grid RowDefinitions="Auto, Auto, Auto"
+                                      ColumnDefinitions="*,*">
+                                    <Label Text="Collection"
+                                       FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+
+                                    <Label Grid.Row="1" 
+                                           Grid.Column="0"
+                                           Grid.ColumnSpan="2"
+                                           Text="Work in progress"/>
+                                </Grid>
+                            </Border>
+
+                            <!--RELATED CARDS-->
+                            <Border Margin="20,10"
+                                    Padding="10"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0">
+                                <Grid RowDefinitions="Auto,Auto,Auto"
+                                      ColumnDefinitions="*,*">
+                                    <Label Text="Related"
+                                           FontAttributes="Bold"
+                                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+
+                                    <Label Grid.Row="1"
+                                           Grid.Column="0"
+                                           Text="Work in progress"/>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </Grid>
+    
+    
+</ContentPage>

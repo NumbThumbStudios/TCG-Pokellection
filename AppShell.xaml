@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TCGPokellection.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TCGPokellection"
+    xmlns:views="clr-namespace:TCGPokellection.Views"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="{AppThemeBinding Light = {StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}">
+
+    <!--FLYOUT HEADER-->
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}}">
+            <Image Margin="30,20,30,20" Source="{AppThemeBinding Light={StaticResource logo_dark_theme}, Dark={StaticResource logo_dark_theme}}">
+                <Image.Shadow>
+                    <Shadow Brush="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}"
+                            Opacity=".5"
+                            Offset="4,4"/>
+                </Image.Shadow>
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}" />
+                </Image.Behaviors>
+            </Image>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!--FLYOUT INNER CONTENT-->
+    <ShellContent
+        Title="Browse"
+        ContentTemplate="{DataTemplate views:SetsPage}"
+        Icon="{AppThemeBinding Light={StaticResource home_icon_light_theme}, Dark={StaticResource home_icon_dark_theme}}"
+        Route="MainPage"/>
+
+    <ShellContent
+        Title="Search"
+        ContentTemplate="{DataTemplate views:SearchPage}"
+        Icon="{AppThemeBinding Light={StaticResource search_icon_light_theme}, Dark={StaticResource search_icon_dark_theme}}"
+        Route="SearchPage"/>
+
+    <!--FLYOUT FOOTER-->
+    <Shell.FlyoutFooter>
+        <Grid RowDefinitions="Auto,Auto"
+              BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}}">
+            <Label Grid.Row="0" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0"
+                   TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}"
+                   Text="Joshua Jackson"/>
+            <Label Grid.Row="1" 
+                   FontSize="Micro" 
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"
+                   TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}"
+                   Text="RippeR_StudioS@yahoo.com"/>
+        </Grid>
+    </Shell.FlyoutFooter>
+
+</Shell>
