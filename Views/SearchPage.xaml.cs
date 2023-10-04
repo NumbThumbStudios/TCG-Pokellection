@@ -3,7 +3,6 @@ using DataLibrary.Models;
 using TCGPokellection.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Collections.ObjectModel;
-using Android.App.AppSearch;
 
 namespace TCGPokellection.Views;
 

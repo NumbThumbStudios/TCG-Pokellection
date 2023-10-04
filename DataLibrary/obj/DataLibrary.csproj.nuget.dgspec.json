@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj": {}
+    "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj": {}
   },
   "projects": {
-    "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj": {
+    "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj",
+        "projectUniqueName": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj",
         "projectName": "DataLibrary",
-        "projectPath": "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj",
+        "projectPath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj",
         "packagesPath": "C:\\Users\\rippe\\.nuget\\packages\\",
-        "outputPath": "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\obj\\",
+        "outputPath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

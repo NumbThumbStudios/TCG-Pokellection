@@ -12,69 +12,69 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = TCGPokellection
-build_property.ProjectDir = H:\Capstone Project\TCGPokellection\
+build_property.ProjectDir = D:\__Portfolio Git Projects__\TCG-Pokellection\
 
-[H:/Capstone Project/TCGPokellection/App.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[H:/Capstone Project/TCGPokellection/AppShell.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[H:/Capstone Project/TCGPokellection/Controls/LoadingControl.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Controls/LoadingControl.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Controls.LoadingControl.xaml
 build_metadata.AdditionalFiles.TargetPath = Controls\LoadingControl.xaml
 build_metadata.AdditionalFiles.RelativePath = Controls\LoadingControl.xaml
 
-[H:/Capstone Project/TCGPokellection/MainPage.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[H:/Capstone Project/TCGPokellection/Resources/Styles/Colors.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[H:/Capstone Project/TCGPokellection/Resources/Styles/Styles.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[H:/Capstone Project/TCGPokellection/Views/CardDetailsPage.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Views/CardDetailsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.CardDetailsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\CardDetailsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CardDetailsPage.xaml
 
-[H:/Capstone Project/TCGPokellection/Views/CardsPage.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Views/CardsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.CardsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\CardsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CardsPage.xaml
 
-[H:/Capstone Project/TCGPokellection/Views/ExpansionsPage.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Views/ExpansionsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.ExpansionsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ExpansionsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ExpansionsPage.xaml
 
-[H:/Capstone Project/TCGPokellection/Views/SearchPage.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Views/SearchPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.SearchPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\SearchPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\SearchPage.xaml
 
-[H:/Capstone Project/TCGPokellection/Views/SetsPage.xaml]
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Views/SetsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.SetsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\SetsPage.xaml

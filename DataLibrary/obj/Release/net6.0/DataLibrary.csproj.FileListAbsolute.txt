@@ -10,3 +10,15 @@ H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.dll
 H:\Capstone Project\DataLibrary\obj\Release\net6.0\refint\DataLibrary.dll
 H:\Capstone Project\DataLibrary\obj\Release\net6.0\DataLibrary.pdb
 H:\Capstone Project\DataLibrary\obj\Release\net6.0\ref\DataLibrary.dll
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\bin\Release\net6.0\DataLibrary.deps.json
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\bin\Release\net6.0\DataLibrary.dll
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\bin\Release\net6.0\DataLibrary.pdb
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\DataLibrary.csproj.AssemblyReference.cache
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\DataLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\DataLibrary.AssemblyInfoInputs.cache
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\DataLibrary.AssemblyInfo.cs
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\DataLibrary.csproj.CoreCompileInputs.cache
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\DataLibrary.dll
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\refint\DataLibrary.dll
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\DataLibrary.pdb
+D:\__Portfolio Git Projects__\TCG-Pokellection\DataLibrary\obj\Release\net6.0\ref\DataLibrary.dll

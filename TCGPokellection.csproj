@@ -15,7 +15,7 @@
 		<ApplicationTitle>TCGPokellection</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.tcgpokellection</ApplicationId>
+		<ApplicationId>com.numbthumbstudios.tcgpokellection</ApplicationId>
 		<ApplicationIdGuid>42085719-851a-4cef-8904-e8607331cb82</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -28,6 +28,11 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<Company>$(Authors)</Company>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>

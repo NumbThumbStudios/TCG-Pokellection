@@ -59278,11 +59278,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\Capstone Project\\TCGPokellection\\TCGPokellection.csproj",
+      "projectUniqueName": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\TCGPokellection.csproj",
       "projectName": "TCGPokellection",
-      "projectPath": "H:\\Capstone Project\\TCGPokellection\\TCGPokellection.csproj",
+      "projectPath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\TCGPokellection.csproj",
       "packagesPath": "C:\\Users\\rippe\\.nuget\\packages\\",
-      "outputPath": "H:\\Capstone Project\\TCGPokellection\\obj\\",
+      "outputPath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
@@ -59308,32 +59308,32 @@
         "net7.0-android33.0": {
           "targetAlias": "net7.0-android",
           "projectReferences": {
-            "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj": {
-              "projectPath": "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj"
+            "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj": {
+              "projectPath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj"
             }
           }
         },
         "net7.0-ios16.1": {
           "targetAlias": "net7.0-ios",
           "projectReferences": {
-            "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj": {
-              "projectPath": "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj"
+            "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj": {
+              "projectPath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj"
             }
           }
         },
         "net7.0-maccatalyst16.1": {
           "targetAlias": "net7.0-maccatalyst",
           "projectReferences": {
-            "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj": {
-              "projectPath": "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj"
+            "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj": {
+              "projectPath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj"
             }
           }
         },
         "net7.0-windows10.0.19041": {
           "targetAlias": "net7.0-windows10.0.19041.0",
           "projectReferences": {
-            "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj": {
-              "projectPath": "H:\\Capstone Project\\TCGPokellection\\DataLibrary\\DataLibrary.csproj"
+            "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj": {
+              "projectPath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\DataLibrary\\DataLibrary.csproj"
             }
           }
         }

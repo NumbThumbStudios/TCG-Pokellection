@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xUqwnGEgi026Eq/Ku0bTiydRGsiEYIgZHPkRs80e0WpQzJxFNcV5QlH7qWYgkf9BErcGBKnH9kAracCKAlRZjA==",
+  "dgSpecHash": "BZLj98UsZ4l6cITPRbNbL6DKsiolOek/ZNkkYZyQIuUGXlcMmdHkVd+iwjEBwgS3SHgE6yczdA7ifP+i9GR8Jg==",
   "success": true,
-  "projectFilePath": "H:\\Capstone Project\\TCGPokellection\\TCGPokellection.csproj",
+  "projectFilePath": "D:\\__Portfolio Git Projects__\\TCG-Pokellection\\TCGPokellection.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rippe\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\rippe\\.nuget\\packages\\azure.identity\\1.8.0\\azure.identity.1.8.0.nupkg.sha512",

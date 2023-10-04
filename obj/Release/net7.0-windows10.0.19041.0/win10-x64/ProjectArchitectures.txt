@@ -1,0 +1,1 @@
+D:\__Portfolio Git Projects__\TCG-Pokellection\TCGPokellection.csproj;x64
