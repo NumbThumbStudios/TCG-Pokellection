@@ -12,9 +12,9 @@ namespace DataLibrary
     public class DataAccess
     {
         public string Server { get; set; } = "2.57.91.5";
-        public string DatabaseName { get; set; } = "u826675553_Pokellection";
-        public string UserName { get; set; } = "u826675553_Josh";
-        public string Password { get; set; } = "MyLeftShoe22!";
+        public string DatabaseName { get; set; } = "****************";
+        public string UserName { get; set; } = "****************";
+        public string Password { get; set; } = "***************";
         public string MySqlConnectionString { get; set; }
 
         public DataAccess()
