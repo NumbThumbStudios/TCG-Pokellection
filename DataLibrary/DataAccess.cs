@@ -11,7 +11,7 @@ namespace DataLibrary
 {
     public class DataAccess
     {
-        public string Server { get; set; } = "2.57.91.5";
+        public string Server { get; set; } = "**********";
         public string DatabaseName { get; set; } = "****************";
         public string UserName { get; set; } = "****************";
         public string Password { get; set; } = "***************";
