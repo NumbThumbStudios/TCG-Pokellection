@@ -28,5 +28,11 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-6937310993044586~9542186826</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
+		
 </dict>
 </plist>

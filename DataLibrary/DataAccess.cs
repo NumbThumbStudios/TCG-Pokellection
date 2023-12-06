@@ -6,22 +6,34 @@ using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.NetworkInformation;
 
 namespace DataLibrary
 {
     public class DataAccess
     {
+        #region FIELDS / PROPERTIES
         public string Server { get; set; } = "2.57.91.5";
         public string DatabaseName { get; set; } = "u826675553_Pokellection";
         public string UserName { get; set; } = "u826675553_Josh";
         public string Password { get; set; } = "MyLeftShoe22!";
         public string MySqlConnectionString { get; set; }
+        #endregion
 
+
+
+
+        #region CONSTRUCTORS
         public DataAccess()
         {
             MySqlConnectionString = string.Format("Server={0};Database={1};Uid={2};Pwd={3}", Server, DatabaseName, UserName, Password);
         }
+        #endregion
 
+
+
+
+        #region METHODS
         public async Task<List<T>> LoadData<T, U>(string sql, U parameters)
         {
             using (IDbConnection connection = new MySqlConnection(MySqlConnectionString))
@@ -48,5 +60,6 @@ namespace DataLibrary
                 connection.Execute(sql, parameters);
             }
         }
+        #endregion
     }
 }

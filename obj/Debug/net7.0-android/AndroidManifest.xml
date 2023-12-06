@@ -5,10 +5,12 @@
     Changes to this file may cause incorrect behavior and will be lost if
     the contents are regenerated.
     -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.numbthumbstudios.tcgpokellection" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.numbthumbstudios.tcgpokellection" android:versionCode="5" android:versionName="1.0">
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.INTERNET" />
-  <application android:allowBackup="true" android:supportsRtl="true" android:label="TCG Pokellection" android:icon="@mipmap/appicon" android:name="crc6414d780c07230bd94.MainApplication" android:debuggable="true" android:extractNativeLibs="true">
+  <application android:allowBackup="true" android:debuggable="true" android:supportsRtl="true" android:label="TCG Pokellection" android:icon="@mipmap/appicon" android:name="crc6414d780c07230bd94.MainApplication" android:extractNativeLibs="true">
+    <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-6937310993044586~8420676848" />
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
     <activity android:configChanges="density|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:theme="@style/Maui.SplashTheme" android:name="crc6414d780c07230bd94.MainActivity" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -27,7 +29,15 @@
     <activity android:exported="true" android:name="microsoft.identity.client.AuthenticationActivity" />
     <activity android:configChanges="orientation|screenSize" android:exported="true" android:name="crc64ed1888fb4925e3b7.AuthenticationAgentActivity" />
     <service android:name="crc64396a3fe5f8138e3f.KeepAliveService" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Battery Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.BatteryBroadcastReceiver" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Energy Saver Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.EnergySaverBroadcastReceiver" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Connectivity Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.ConnectivityBroadcastReceiver" />
+    <activity android:configChanges="orientation|screenSize" android:name="crc64a0e0a82d0db9a07d.IntermediateActivity" />
+    <provider android:authorities="com.numbthumbstudios.tcgpokellection.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="xamarin.essentials.fileProvider">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/xamarin_essentials_fileprovider_file_paths" />
+    </provider>
+    <activity android:configChanges="orientation|screenSize" android:name="crc64a0e0a82d0db9a07d.WebAuthenticatorIntermediateActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.numbthumbstudios.tcgpokellection.mono.MonoRuntimeProvider.__mono_init__" />
   </application>
-  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="31" />
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33" />
 </manifest>

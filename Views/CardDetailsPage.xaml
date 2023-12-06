@@ -1,66 +1,132 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
+             xmlns:ad_controls="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMTAdmob"
+             xmlns:controls="clr-namespace:TCGPokellection.Controls"
              x:Class="TCGPokellection.Views.CardDetailsPage"
              Shell.NavBarIsVisible="False"
              Title="CardDetailsPage">
 
 
-    <Grid>
-        <CarouselView ItemsSource="{Binding Cards}"
+    <Grid RowDefinitions="*, Auto">
+        <!--CAROUSEL VIEW-->
+        <CarouselView 
+                      ItemsSource="{Binding Cards}"
                       x:Name="CardDetailsCarouselView"
                       Loop="False"
+                      PeekAreaInsets="18"
                       CurrentItem="{Binding CardSelected}"
-                      Position="{Binding Position, Mode=OneWay}">
+                      Position="{Binding Position, Mode=OneWay}"
+                      >
             <CarouselView.ItemTemplate>
                 <DataTemplate x:DataType="models:CardsModel">
-                    <ScrollView VerticalScrollBarVisibility="Never">
-                        <VerticalStackLayout>
+                    <ScrollView VerticalScrollBarVisibility="Never"
+                                Margin="8">
+                        <VerticalStackLayout Spacing="10">
+
                             <!--CARD IMAGE-->
                             <Grid RowDefinitions="Auto,*" 
-                                  ColumnDefinitions=".25*,*,.25*">
+                                  ColumnDefinitions=".25*,*,.25*"
+                                  Margin="0,20,0,20">
                                 <Border Grid.Row="1" 
                                         Grid.Column="1" 
-                                        HeightRequest="222"
-                                        WidthRequest="158"
                                         StrokeThickness="0"
                                         StrokeShape="RoundRectangle 10,10,10,10"
-                                        BackgroundColor="Transparent"
-                                        Margin="0,20,0,10">
-                                    <Border.Shadow>
+                                        BackgroundColor="Transparent">
+                                    <!--HeightRequest="222"
+                                        WidthRequest="158"-->
+                                    
+                                    <!--<Border.Shadow>
                                         <Shadow Brush="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
                                                 Offset="10,10"
                                                 Radius="20"
                                                 Opacity=".4"/>
-                                    </Border.Shadow>
-                                    <Image Grid.Row="0"
-                                           Grid.RowSpan="3"
-                                           Source="pokemon_card_back.png"/>
+                                    </Border.Shadow>-->
+                                    <Grid Grid.Row="0"
+                                          Grid.RowSpan="3">
+                                        <Image Source="tcg_image_missing.png"
+                                               IsVisible="{Binding tcg_cards_is_product}"
+                                               IsEnabled="True">
+                                            <Image.Behaviors>
+                                                <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                                            </Image.Behaviors>
+                                        </Image>
+                                        <Image Source="pokemon_card_back.png"
+                                               IsVisible="{Binding ShowCardBack}"/>
+                                    </Grid>
+
                                 </Border>
                                 <Border Grid.Row="1" 
                                         Grid.Column="1" 
-                                        HeightRequest="224"
-                                        WidthRequest="160"
                                         StrokeThickness="0"
                                         StrokeShape="RoundRectangle 10,10,10,10"
-                                        BackgroundColor="Transparent"
-                                        Margin="0,20,0,10">
+                                        BackgroundColor="Transparent">
+                                    <!--HeightRequest="224"
+                                    WidthRequest="160"-->
                                     <Border.Shadow>
                                         <Shadow Brush="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
                                                 Offset="10,10"
                                                 Radius="20"
                                                 Opacity=".4"/>
                                     </Border.Shadow>
-                                    <Image Source="{Binding tcg_cards_image_url}"/>
+                                    <Image Source="{Binding tcg_cards_image_url}">
+                                        <Image.Shadow>
+                                            <Shadow Brush="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                                Offset="10,10"
+                                                Radius="20"
+                                                Opacity=".4"/>
+                                        </Image.Shadow>
+                                    </Image>
                                 </Border>
                             </Grid>
 
-                            <!--DETAILS-->
-                            <Border Margin="20,10"
-                                    Padding="10"
+                            <!--DETAILS: PRODUCT TITLE-->
+                            <Border Padding="10"
                                     StrokeShape="RoundRectangle 10"
-                                    StrokeThickness="0">
+                                    StrokeThickness="0"
+                                    IsVisible="{Binding tcg_cards_is_product}">
+                                <VerticalStackLayout>
+                                    <Label Text="Product"
+                                           Margin="0,0,0,4"
+                                           FontAttributes="Bold"
+                                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+
+                                    <Label Grid.Column="0" 
+                                           Grid.Row="1"
+                                           FontAttributes="Bold"
+                                           FontSize="Micro"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding tcg_cards_clean_name}"/>
+                                </VerticalStackLayout>
+                            </Border>
+
+                            <!--DETAILS: PRODUCT DESCRIPTION-->
+                            <Border Padding="10"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0"
+                                    IsVisible="{Binding tcg_cards_is_product}">
+                                <VerticalStackLayout>
+                                    <Label Text="Description"
+                                           Margin="0,0,0,4"
+                                           FontAttributes="Bold"
+                                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+
+                                    <Label HorizontalOptions="Start"
+                                           MaxLines="12"
+                                           FontSize="Micro"
+                                           LineBreakMode="WordWrap"
+                                           Text="{Binding tcg_cards_cardNumber}"/>
+                                </VerticalStackLayout>
+                            </Border>
+
+                            <!--DETAILS: CARD-->
+                            <Border Padding="10"
+                                    StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0"
+                                    IsVisible="{Binding ShowCardBack}">
                                 <Grid RowDefinitions="Auto,Auto,Auto,Auto"
                                       ColumnDefinitions="*,*">
                                     <!--ROW: 0-->
@@ -119,8 +185,7 @@
                             </Border>
 
                             <!--PRICE/MARKETPLACE-->
-                            <Border Margin="20,10"
-                                    Padding="10"
+                            <Border Padding="10"
                                     StrokeShape="RoundRectangle 10"
                                     StrokeThickness="0">
                                 <Grid RowDefinitions="Auto,Auto">
@@ -145,10 +210,10 @@
                                             <Label Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding PriceHigh}"/>
                                         </Grid>
 
-                                        <Grid ColumnDefinitions="*,*">
+                                        <!--<Grid ColumnDefinitions="*,*">
                                             <Label Text="TCG Direct"/>
                                             <Label Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding PriceDirectLow}"/>
-                                        </Grid>
+                                        </Grid>-->
 
                                         <Grid ColumnDefinitions="*,*">
                                             <Label Text="Market Price"/>
@@ -165,7 +230,7 @@
                                             <Label Grid.Row="1"
                                                    Grid.Column="0"
                                                    Grid.ColumnSpan="2"
-                                                   Text="{Binding tcg_cards_last_sync}"
+                                                   Text="{Binding LastUpdated}"
                                                    FontSize="Micro"/>
                                             <Border Grid.Row="0" 
                                                     Grid.RowSpan="2"
@@ -183,7 +248,7 @@
                                                 <Border.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="ShopNow_Tapped"/>
                                                 </Border.GestureRecognizers>
-                                                <Label Text="Shop Now"
+                                                <Label Text="Check it out"
                                                        FontAttributes="Bold"
                                                        TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark3}}"
                                                        Margin="5"
@@ -195,8 +260,7 @@
                             </Border>
 
                             <!--COLLECTION-->
-                            <Border Margin="20,10"
-                                    Padding="10"
+                            <Border Padding="10"
                                     StrokeShape="RoundRectangle 10"
                                     StrokeThickness="0">
                                 <Grid RowDefinitions="Auto, Auto, Auto"
@@ -205,16 +269,75 @@
                                        FontAttributes="Bold"
                                        TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
 
-                                    <Label Grid.Row="1" 
-                                           Grid.Column="0"
-                                           Grid.ColumnSpan="2"
-                                           Text="Work in progress"/>
+                                    <!--MY BASIC COLLECTION-->
+                                    <Grid Grid.Row="1" 
+                                          Grid.ColumnSpan="2"
+                                          ColumnDefinitions=".5*, *, .5*"
+                                          Margin="0, 10, 0, 10">
+
+                                        <!--MINUS BUTTON-->
+                                        <Border Grid.Column="0" 
+                                                BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                                WidthRequest="36"
+                                                HeightRequest="36"
+                                                StrokeShape="RoundRectangle 50"
+                                                StrokeThickness="0">
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="MinusButtonCollection_Tapped"/>
+                                            </Border.GestureRecognizers>
+                                            <Label Text="-"
+                                                   Padding="0,0,0,10"
+                                                   FontAttributes="Bold"
+                                                   FontSize="24"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"
+                                                   TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"/>
+                                        </Border>
+
+                                        <!--COLLECTION TEXT-->
+                                        <Border Grid.Column="1"  
+                                                BackgroundColor="Transparent"
+                                                StrokeThickness="0">
+                                            <Grid RowDefinitions="*,*">
+                                                <Label Grid.Row="0"
+                                                       Text="{Binding tcg_cards_subType}"
+                                                       HorizontalTextAlignment="Center"
+                                                       Opacity=".5"
+                                                       FontAttributes="Italic"
+                                                       FontSize="Micro"/>
+                                                <Label Grid.Row="1" 
+                                                       Text="{Binding CollectionCount}" 
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Small"/>
+                                            </Grid>
+                                        </Border>
+
+                                        <!--PLUS BUTTON-->
+                                        <Border Grid.Column="2"
+                                                BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                                WidthRequest="36"
+                                                HeightRequest="36"
+                                                StrokeShape="RoundRectangle 50"
+                                                StrokeThickness="0">
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="PlusButtonCollection_Tapped"/>
+                                            </Border.GestureRecognizers>
+                                            <Label Text="+"
+                                                   Padding="0,0,0,10"
+                                                   FontAttributes="Bold"
+                                                   FontSize="24"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"
+                                                   TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"/>
+                                        </Border>
+                                    </Grid>
                                 </Grid>
                             </Border>
 
                             <!--RELATED CARDS-->
-                            <Border Margin="20,10"
-                                    Padding="10"
+                            <!--<Border Padding="10"
                                     StrokeShape="RoundRectangle 10"
                                     StrokeThickness="0">
                                 <Grid RowDefinitions="Auto,Auto,Auto"
@@ -227,12 +350,32 @@
                                            Grid.Column="0"
                                            Text="Work in progress"/>
                                 </Grid>
-                            </Border>
+                            </Border>-->
                         </VerticalStackLayout>
                     </ScrollView>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
+
+        <!--BANNER ADS-->
+        <ad_controls:MTAdView x:Name="myAds"
+                              Grid.Row="1"
+                              VerticalOptions="Center"
+                              Margin="10"
+                              IsVisible="True">
+            <ad_controls:MTAdView.HeightRequest>
+                <x:OnIdiom>
+                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                </x:OnIdiom>
+            </ad_controls:MTAdView.HeightRequest>
+        </ad_controls:MTAdView>
+
+        <!--LOADING INDICATOR-->
+        <controls:LoadingControl Grid.Row="0"
+                                 Grid.RowSpan="3"
+                                 x:Name="LoadingIndicator"/>
     </Grid>
     
     

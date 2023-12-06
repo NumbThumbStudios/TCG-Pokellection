@@ -8,7 +8,7 @@ package androidx.navigation.fragment;
 
 public final class R {
 	public static final class attr {
-		public static final int defaultNavHost = 0x7f03014f;
+		public static final int defaultNavHost = 0x7f030152;
 	}
 	public static final class dimen {
 		public static final int sliding_pane_detail_pane_width = 0x7f060265;
@@ -23,7 +23,7 @@ public final class R {
 		public static final int DialogFragmentNavigator_android_name = 0;
 		public static final int[] FragmentNavigator = new int[] { 0x01010003 };
 		public static final int FragmentNavigator_android_name = 0;
-		public static final int[] NavHostFragment = new int[] { 0x7f03014f };
+		public static final int[] NavHostFragment = new int[] { 0x7f030152 };
 		public static final int NavHostFragment_defaultNavHost = 0;
 	}
 }

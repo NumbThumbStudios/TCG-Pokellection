@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="TCGPokellection.Controls.SimplePopup">
+
+
+    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource Theme_Light3}, Dark={StaticResource Theme_Dark3}}">
+        <VerticalStackLayout Margin="20,20,20,0">
+            <Label Text="Title"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                   FontSize="Large"/>
+
+            <Label/>
+
+            <Label Text="This is where the description would go... In case you were wondering, creating custom Popups is kind of a bitch!"
+               FontSize="Small"/>
+
+            <Label/>
+
+            <Grid ColumnDefinitions="2*,*,*"
+                  Margin="10">
+                <Button Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="End"
+                        Text="Yes"
+                        Clicked="OnYesButton_Clicked"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+                <Button Grid.Column="2" 
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="End"
+                        Text="No"
+                        Clicked="OnNoButton_Clicked"
+                        FontAttributes="Bold"
+                        TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+            </Grid>
+            
+        </VerticalStackLayout>
+    </Grid>
+</toolkit:Popup>

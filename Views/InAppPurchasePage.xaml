@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TCGPokellection.Controls"
+             x:Class="TCGPokellection.Views.InAppPurchasePage"
+             BindingContext="this"
+             Title="Advertisements">
+    
+    
+    <Grid RowDefinitions="*, Auto, *" 
+          Margin="20">
+        <VerticalStackLayout Grid.Row="1">
+            
+            <!--MESSAGE TITLE-->
+            <Label Margin="0,0,0,20"
+                   HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text=" Dear Community"
+                              TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                              FontSize="Medium"
+                              FontAttributes="Bold,Italic"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <!--MESSAGE BODY PT1-->
+            <Label Margin="10,0,10,20" 
+                   HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" 
+                              Text="We hope you're enjoying our app as much as we love developing it for you! To keep everything running smoothly and to cover essential costs like hosting and servers, we've included carefully curated ads. We understand ads can be a bit inconvenient, but they play a crucial role in ensuring that"/>
+
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}" 
+                              FontAttributes="Bold" 
+                              Text=" TCG Pokellection "/>
+
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                              Text="remains accessible to everyone."/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <!--MESSAGE BODY PT2-->
+            <Label Margin="10,0,10,20" 
+                   HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                              Text="If you'd like to support us even further and enjoy an ad-free experience, we have a solution! Consider making a one-time purchase to permanently remove ads. This not only enhances your experience but also contributes directly to the ongoing improvement and sustainability of "/>
+
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}" 
+                              FontAttributes="Bold" 
+                              Text="TCG Pokellection. "/>
+
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                              Text="We appreciate your understanding and support as we strive to provide you with the best possible app experience."/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
+            <!--MESSAGE FOOTER-->
+            <Label Margin="0,0,0,20"
+                   HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                              Text="The "
+                              FontAttributes="Bold"/>
+                        
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}" 
+                              Text="TCG Pokellection"
+                              FontAttributes="Bold,Italic"/>
+
+                        <Span TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                              Text=" Team"
+                              FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <!--PURCHASE BUTTON-->
+            <Grid ColumnDefinitions=".75*,*,.75*" 
+                  Margin="0,40,0,20">
+                <Label Grid.Column="1" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       x:Name="AdsPurchased_Label"
+                       FontAttributes="Bold"
+                       TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                       Text="Thank you!"/>
+                <Button Grid.Column="1" 
+                        x:Name="RemoveAds_Button"
+                        Text="Remove Ads"
+                        FontAttributes="Bold"
+                        Clicked="RemoveAds_Button_Clicked"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                        TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!--LOADING INDICATOR-->
+        <controls:LoadingControl Grid.Row="0"
+                                 Grid.RowSpan="3"
+                                 x:Name="LoadingIndicator"/>
+    </Grid>
+    
+    
+</ContentPage>

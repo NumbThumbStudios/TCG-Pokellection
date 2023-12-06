@@ -1,4 +1,8 @@
 is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net7.0-android
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -7,12 +11,10 @@ build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.EnableAotAnalyzer = 
-build_property.EnableSingleFileAnalyzer = true
-build_property.EnableTrimAnalyzer = false
-build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = TCGPokellection
 build_property.ProjectDir = D:\__Portfolio Git Projects__\TCG-Pokellection\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 
 [D:/__Portfolio Git Projects__/TCG-Pokellection/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -31,6 +33,18 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Controls.LoadingControl.xaml
 build_metadata.AdditionalFiles.TargetPath = Controls\LoadingControl.xaml
 build_metadata.AdditionalFiles.RelativePath = Controls\LoadingControl.xaml
+
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Controls/Popup_CardsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Controls.Popup_CardsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\Popup_CardsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\Popup_CardsPage.xaml
+
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Controls/SimplePopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Controls.SimplePopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Controls\SimplePopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Controls\SimplePopup.xaml
 
 [D:/__Portfolio Git Projects__/TCG-Pokellection/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -67,6 +81,24 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.ExpansionsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ExpansionsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ExpansionsPage.xaml
+
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Views/InAppPurchasePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.InAppPurchasePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\InAppPurchasePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\InAppPurchasePage.xaml
+
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Views/SealedProductListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.SealedProductListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SealedProductListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SealedProductListPage.xaml
+
+[D:/__Portfolio Git Projects__/TCG-Pokellection/Views/SealedProductMainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TCGPokellection.Views.SealedProductMainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SealedProductMainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SealedProductMainPage.xaml
 
 [D:/__Portfolio Git Projects__/TCG-Pokellection/Views/SearchPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

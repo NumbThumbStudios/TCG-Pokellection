@@ -1,45 +1,215 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:views="clr-namespace:TCGPokellection.Views"
              xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
              xmlns:controls="clr-namespace:TCGPokellection.Controls"
+             xmlns:ad_controls="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMTAdmob"
              x:Class="TCGPokellection.Views.CardsPage"
+             x:DataType="views:CardsPage"
              Title="Cards">
 
+    <!--SHELL TITLE VIEW-->
+    <Shell.TitleView>
+        <Grid ColumnDefinitions=".4*,*,*"
+              Margin="10">
+            <Border Grid.Column="0" BackgroundColor="Transparent" StrokeThickness="0"></Border>
+            <Image Grid.Column="1"
+                   HorizontalOptions="Center"
+                   BackgroundColor="Transparent"
+                   Source="{Binding HeaderImage}"/>
 
-    <Grid RowDefinitions="Auto, *">
+            <Border Grid.Column="2" BackgroundColor="Transparent" HorizontalOptions="End" StrokeThickness="0">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Menu_Tapped"/>
+                </Border.GestureRecognizers>
+                <Image Source="spr_menu_white.png"/>
+            </Border>
+        </Grid>
+    </Shell.TitleView>
+
+    <!--PAGE CONTENT-->
+    <Grid RowDefinitions="Auto, *"
+          Margin="4">
 
         <!--HEADER: SORT, FILTER, ETC.-->
-        <Grid Grid.Row="0"
-              ColumnDefinitions="*, *, .5*"
-              Padding="20,0,4,0">
-            <Picker Title="Sort" 
-                    x:Name="CardsSortPicker"
-                    SelectedIndex="{Binding Sort_SelectedItem, Mode=TwoWay}"
-                    TitleColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
-                    TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
-                    BackgroundColor="Transparent"
-                    Visual="Default">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Card Number: Low to High</x:String>
-                        <x:String>Card Number: High to Low</x:String>
-                        <x:String>Product Name: A to Z</x:String>
-                        <x:String>Product Name: Z to A</x:String>
-                        <x:String>Price: Low to High</x:String>
-                        <x:String>Price: High to Low</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-        </Grid>
+        <Border Grid.Row="0" 
+                BackgroundColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"
+                StrokeShape="RoundRectangle 10"
+                Margin="0,4,0,0"
+                StrokeThickness="0">
+            
+            <!--TOP SECTION-->
+            <Grid Grid.Row="0"
+                  RowDefinitions="Auto, Auto">
+
+                <!--SORT/FILTER/TOGGLE VARIANTS-->
+                <Grid Grid.Row="0"
+                      ColumnDefinitions="*,*,*"
+                      RowDefinitions="Auto, Auto"
+                      Margin="0"
+                      IsVisible="False"
+                      ColumnSpacing="5">
+                    <!--SORT CONTROL-->
+                    <Border StrokeShape="RoundRectangle 15,15,15,15"
+                            StrokeThickness="0"
+                            BackgroundColor="Transparent"
+                            Padding="5,8,5,8">
+                        <Picker Title="Sort" 
+                                x:Name="CardsSortPicker"
+                                FontSize="Micro"
+                                HorizontalTextAlignment="Center"
+                                SelectedIndex="{Binding Sort_SelectedItem, Mode=TwoWay}"
+                                TitleColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                BackgroundColor="Transparent"
+                                Visual="Default">
+                            <!--<Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Card Number: Low to High</x:String>
+                                    <x:String>Card Number: High to Low</x:String>
+                                    <x:String>Product Name: A to Z</x:String>
+                                    <x:String>Product Name: Z to A</x:String>
+                                    <x:String>Price: Low to High</x:String>
+                                    <x:String>Price: High to Low</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>-->
+                        </Picker>
+                    </Border>
+
+                    <!--FILTER CONTROL-->
+                    <Border Grid.Column="1" 
+                            StrokeShape="RoundRectangle 15,15,15,15"
+                            StrokeThickness="0"
+                            BackgroundColor="Transparent"
+                            Padding="5,8,5,8">
+                        <Picker Title="Filter"
+                                x:Name="CardsFilterPicker"
+                                FontSize="Micro"
+                                HorizontalTextAlignment="Center"
+                                SelectedIndex="{Binding Filter_SelectedItem, Mode=TwoWay}"
+                                TitleColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                BackgroundColor="Transparent"
+                                Visual="Default">
+                            <!--<Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>None</x:String>
+                                    <x:String>In My Collection</x:String>
+                                    <x:String>Cards I Still Need</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>-->
+                        </Picker>
+                    </Border>
+
+                    <!--VARIANT CONTROL-->
+                    <Border Grid.Column="2"
+                            HeightRequest="24"
+                            StrokeShape="Ellipse 100"
+                            Margin="0,0,20,0"
+                            IsVisible="False">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ToggleShowVariants_Tapped"/>
+                        </Border.GestureRecognizers>
+                        <Image Source="{Binding Variants_Enabled}"/>
+                    </Border>
+
+                    <!--VARIANT SWITCH-->
+                    <Border Grid.Column="2"
+                        StrokeShape="RoundRectangle 10"
+                        BackgroundColor="Transparent"
+                        StrokeThickness="0"
+                        HorizontalOptions="Center">
+                        <Switch IsToggled="True"
+                            OnColor="{AppThemeBinding Light={StaticResource Theme_Light2}, Dark={StaticResource Theme_Dark3}}"
+                            ThumbColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                            BackgroundColor="Transparent"/>
+                    </Border>
+                </Grid>
+                
+
+                <!--COLLECTION AND SET DATA-->
+                <Grid Grid.Row="1"
+                      Grid.ColumnSpan="3"
+                      ColumnDefinitions="*,*,*"
+                      Margin="4"
+                      ColumnSpacing="5">
+                    <!--SET DATA-->
+                    <Border Grid.Column="0" 
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Theme_Dark2}}"
+                            StrokeShape="RoundRectangle 10"
+                            StrokeThickness="0">
+                        <Grid RowDefinitions="Auto,Auto"
+                              Padding="6">
+                            <Label Grid.Row="0"
+                                   Text="Released On:"
+                                   TextColor="{AppThemeBinding Light={StaticResource Theme_Light3}, Dark={StaticResource Theme_Light}}"
+                                   FontSize="Micro"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="1"
+                                   Text="{Binding Expansion_ReleaseDate}"
+                                   TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Primary}}"
+                                   FontSize="Small"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <!--COLLECTION COMPLETION-->
+                    <Border Grid.Column="1" 
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Theme_Dark2}}"
+                            StrokeShape="RoundRectangle 10"
+                            StrokeThickness="0">
+                        <Grid RowDefinitions="Auto,Auto"
+                              Padding="6">
+                            <Label Grid.Row="0"
+                                   Text="Collection %"
+                                   TextColor="{AppThemeBinding Light={StaticResource Theme_Light3}, Dark={StaticResource Theme_Light}}"
+                                   FontSize="Micro"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="1"
+                                   Text="{Binding Expansion_Collection_Completion}"
+                                   TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Primary}}"
+                                   FontSize="Small"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <!--COLLECTION VALUE-->
+                    <Border Grid.Column="2" 
+                            BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Theme_Dark2}}"
+                            StrokeShape="RoundRectangle 10"
+                            StrokeThickness="0">
+                        <Grid RowDefinitions="Auto,Auto"
+                              Padding="6">
+                            <Label Text="Collection Value"
+                                   TextColor="{AppThemeBinding Light={StaticResource Theme_Light3}, Dark={StaticResource Theme_Light}}"
+                                   FontSize="Micro"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="1" 
+                                   Text="{Binding Expansion_Collection_Value}"
+                                   TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Primary}}"
+                                   FontSize="Small"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
 
         <!--COLLECTION VIEW OF CARDS-->
         <CollectionView Grid.Row="1"
                         x:Name="CardsCollectionView"
-                        ItemsSource="{Binding Cards}"
+                        ItemsSource="{Binding page_cards}"
                         SelectionMode="Single"
                         SelectedItem="{Binding SelectedItem}"
-                        Margin="20,10,20,0"
+                        Margin="0,10,0,4"
                         ItemsUpdatingScrollMode="KeepScrollOffset">
 
             <CollectionView.ItemsLayout>
@@ -48,15 +218,26 @@
                                  Span="3"/>
             </CollectionView.ItemsLayout>
 
+            <CollectionView.Header>
+                <Grid Margin="0,0,0,10">
+                    <Label Text="{Binding Expansion_CardCount}"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                           FontSize="Micro"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"/>
+                </Grid>
+            </CollectionView.Header>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:CardsModel">
                     <Border StrokeThickness="2"
-                            Stroke="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                            Stroke="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"
                             StrokeShape="RoundRectangle 4"
                             BackgroundColor="{AppThemeBinding Light={StaticResource Theme_Light2}, Dark={StaticResource Theme_Dark2}}"
                             Margin="0">
 
-                        <Grid RowDefinitions="Auto, *, Auto">
+                        <Grid RowDefinitions=".5*, *, Auto">
+                            <!--IMAGES-->
                             <Image Grid.Row="0"
                                    Grid.RowSpan="3" 
                                    Source="pokemon_card_back.png"/>
@@ -65,7 +246,38 @@
                                    Grid.RowSpan="3" 
                                    Source="{Binding tcg_cards_image_url}"/>
 
+                            <!--COLLECTION BUTTON-->
+                            <Grid Grid.Row="0" Grid.RowSpan="3" RowDefinitions="*,*,*" ColumnDefinitions="*,.65*">
+                                <Border Grid.Column="1" BackgroundColor="Transparent" StrokeThickness="0">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="UpdateCollection_Tapped"/>
+                                    </Border.GestureRecognizers>
 
+                                    <Image Source="{Binding CollectionIconSource}" 
+                                           Opacity="1"
+                                           VerticalOptions="Start"/>
+                                </Border>
+                            </Grid>
+
+                            <!--SUB TYPE-->
+                            <Grid Grid.Row="1"
+                                  RowDefinitions="*,*"
+                                  ColumnDefinitions="*,*"
+                                  Margin="0,0,2,-5"
+                                  IsVisible="{Binding ShowSubType}">
+                                <Border Grid.Row="1" 
+                                        Grid.Column="1" 
+                                        StrokeThickness="0"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="End"
+                                        BackgroundColor="Transparent"
+                                        HeightRequest="32" 
+                                        WidthRequest="64" >
+                                    <Image Source="spr_variants_label_1.png"/>
+                                </Border>
+                            </Grid>
+
+                            <!--CARD DETAILS INFO-->
                             <Border Grid.Row="2"
                                     BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
                                     StrokeThickness="0"
@@ -98,11 +310,33 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
+        <!--NO NETWORK - RETRY BUTTON-->
+        <VerticalStackLayout Grid.Row="1"
+                             x:Name="RetrySection"
+                             IsVisible="False"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="10">
+            <Label Text="No internet connection"/>
+            <Button Text="Retry"
+                    Clicked="RetryButton_Clicked"
+                    FontAttributes="Bold"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                    TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"/>
+        </VerticalStackLayout>
+
+        <!--POPUP MENU-->
+        <controls:Popup_CardsPage x:Name="PopupMenu" 
+                                  IsVisible="False"
+                                  Opacity="0"
+                                  Grid.Row="0"
+                                  Grid.RowSpan="2"
+                                  Margin="-4"/>
+
         <!--LOADING INDICATOR-->
         <controls:LoadingControl Grid.Row="0"
                                  Grid.RowSpan="3"
                                  x:Name="LoadingIndicator"/>
-
     </Grid>
     
     

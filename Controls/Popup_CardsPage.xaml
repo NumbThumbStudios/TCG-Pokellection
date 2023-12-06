@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="TCGPokellection.Controls.Popup_CardsPage">
+
+    <Grid>
+        <Border BackgroundColor="{AppThemeBinding Light={StaticResource Theme_Light3}, Dark={StaticResource Theme_Dark2}}"
+                StrokeThickness="0"
+                Margin="-2,-2,-2,-2"
+                Opacity="{AppThemeBinding Light=.8, Dark=.8}">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OuterBorder_Tapped"/>
+            </Border.GestureRecognizers>
+        </Border>
+
+
+        <Grid RowDefinitions="Auto"
+              VerticalOptions="Center"
+              Margin="20">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="BlockAllTaps_Tapped"/>
+            </Grid.GestureRecognizers>
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"
+                    StrokeThickness="0"
+                    Stroke="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                    StrokeShape="RoundRectangle 6">
+
+                <VerticalStackLayout VerticalOptions="Center"
+                                     Margin="20,40,20,20">
+                    
+                    <!--SORT-->
+                    <Label Text="Sort" 
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           Margin="0,0,0,-10"
+                           Padding="{OnPlatform Android='0,0,0,0',iOS='0,0,0,0'}"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+                    <Picker Title="Sort" 
+                        x:Name="CardsSortPicker"
+                        Margin="4,0,4,12"
+                        SelectedIndex="{Binding Sort_SelectedItem, Mode=TwoWay}"
+                        TitleColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                        BackgroundColor="Transparent"
+                        Visual="Default">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Card Number: Low to High</x:String>
+                                <x:String>Card Number: High to Low</x:String>
+                                <x:String>Product Name: A to Z</x:String>
+                                <x:String>Product Name: Z to A</x:String>
+                                <x:String>Price: Low to High</x:String>
+                                <x:String>Price: High to Low</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <BoxView HeightRequest="1" 
+                             Color="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}" 
+                             Margin="4,-20,4,20"/>
+
+                    <!--FILTER-->
+                    <Label Text="Filter" 
+                           FontSize="Medium"
+                           FontAttributes="Bold"
+                           Margin="0,0,0,-10"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"/>
+                    <Picker Title="Filter"
+                        x:Name="CardsFilterPicker"
+                        Margin="4,0,4,12"
+                        SelectedIndex="{Binding Filter_SelectedItem, Mode=TwoWay}"
+                        TitleColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                        BackgroundColor="Transparent"
+                        Visual="Default">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>None</x:String>
+                                <x:String>In My Collection</x:String>
+                                <x:String>Cards I Still Need</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <BoxView HeightRequest="1" 
+                             Color="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}" 
+                             Margin="4,-20,4,20"/>
+
+                    <!--VARIANT SWITCH-->
+                    <Grid BackgroundColor="Transparent"
+                          ColumnDefinitions="*,*">
+                        <Label Text="Show Variants" 
+                               FontAttributes="Bold"
+                               FontSize="Medium"
+                               Margin="0,0,0,0"
+                               TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                               VerticalTextAlignment="Center"/>
+
+                        <Grid Grid.Column="1" HorizontalOptions="End">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="VariantSwitch_Tapped"/>
+                            </Grid.GestureRecognizers>
+
+                            <!--SWITCHS - OFF-->
+                            <Image x:Name="SwitchBackground_Off" 
+                                   Source="switch_background_off.png">
+                                <Image.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Theme_Light2}, Dark={StaticResource Theme_Dark2}}" />
+                                </Image.Behaviors>
+                            </Image>
+                            <Image x:Name="SwitchButton_Off" 
+                                   Source="switch_button_off.png">
+                                <Image.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Theme_Light3}, Dark={StaticResource Theme_Dark3}}" />
+                                </Image.Behaviors>
+                            </Image>
+
+                            <!--SWITCHS - ON-->
+                            <Image x:Name="SwitchBackground_On" 
+                                   Source="switch_background_on.png">
+                                <Image.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Theme_Light3}, Dark={StaticResource Theme_Dark3}}" />
+                                </Image.Behaviors>
+                            </Image>
+                            <Image x:Name="SwitchButton_On" 
+                                   Source="switch_button_on.png">
+                                <Image.Behaviors>
+                                    <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}" />
+                                </Image.Behaviors>
+                            </Image>
+                        </Grid>
+                    </Grid>
+
+                    <!--ADD ALL CARDS TO COLLECTION-->
+                    <Label Text="ADD ALL TO COLLECTION"
+                           FontAttributes="Bold"
+                           FontSize="Micro"
+                           Margin="0,40,0,0"
+                           Padding="0,10,0,10"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AddAllCards_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+
+                    <!--REMOVE ALL CARDS FROM COLLECTION-->
+                    <Label Text="REMOVE ALL FROM COLLECTION"
+                           BackgroundColor="Transparent"
+                           FontAttributes="Bold"
+                           FontSize="Micro"
+                           Margin="0,0,0,0"
+                           Padding="0,10,0,10"
+                           TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="RemoveAllCards_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <!--USER ACTIONS-->
+                    <Grid ColumnDefinitions="*,*,*" 
+                          Margin="0,80,0,0">
+                        <Button Grid.Column="1" 
+                                Text="Close"
+                                FontAttributes="Bold"
+                                Clicked="CloseButton_Clicked"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark3}}"/>
+                    </Grid>
+
+
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+        
+    </Grid>
+    
+</ContentView>

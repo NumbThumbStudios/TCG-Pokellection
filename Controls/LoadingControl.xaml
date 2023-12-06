@@ -8,6 +8,9 @@
           ColumnDefinitions="*,*,*"
           BackgroundColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"
           Opacity=".8">
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="BlockAllTaps_Tapped"/>
+        </Grid.GestureRecognizers>
         <ActivityIndicator Grid.Row="1"
                            Grid.Column="1" 
                            IsRunning="True"

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:views="clr-namespace:TCGPokellection.Views"
+             xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
+             xmlns:controls="clr-namespace:TCGPokellection.Controls"
+             xmlns:ad_controls="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMTAdmob"
+             x:Class="TCGPokellection.Views.SealedProductMainPage"
+             x:DataType="views:SealedProductMainPage"
+             Title="Sealed Product">
+
+    <!--TITLE NAVBAR VIEW-->
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="*,*">
+            <Grid Grid.Column="0"
+                  VerticalOptions="Center">
+                <Label Text="Sealed Products"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       VerticalTextAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1" 
+                  RowDefinitions="Auto,Auto,Auto"
+                  Margin="0,0,16,0"
+                  VerticalOptions="Center">
+                <Label Grid.Row="0" 
+                           TextColor="{AppThemeBinding Light={StaticResource Theme_Light2}, Dark={StaticResource Theme_Light3}}"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="End"
+                           Text="Collection Value:"/>
+
+                <Label Grid.Row="1"
+                           TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}"
+                           FontSize="Small"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="End"
+                           Text="{Binding TotalCollectionValue}"/>
+            </Grid>
+        </Grid>
+    </Shell.TitleView>
+
+
+    <!--CONTENT-->
+    <Grid
+        RowDefinitions="*,Auto"
+        Margin="4">
+
+        <!--COLLECTION VIEW OF PRODUCTS-->
+        <CollectionView
+            Grid.Row="0"
+            x:Name="Products_CollectionView"
+            ItemsSource="{Binding Sets}"
+            SelectedItem="{Binding SelectedItem}"
+            SelectionMode="Single">
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate
+                    x:DataType="models:SetsModel">
+
+                    <Border Margin="4" 
+                            StrokeShape="RoundRectangle 10"
+                            StrokeThickness="0">
+                        
+                        <Grid
+                            ColumnDefinitions="*,*"
+                            Margin="10">
+
+                            <Grid
+                                Grid.Column="0"
+                                RowDefinitions="Auto,Auto,Auto"
+                                VerticalOptions="Center">
+                                <Label 
+                                    Grid.Row="0" 
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    VerticalOptions="Center"
+                                    Text="{Binding set_name}"/>
+                                <Label
+                                    Grid.Row="1"
+                                    VerticalOptions="Center"
+                                    FontSize="Micro"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Display_NumberOfProducts}"/>
+                                <Label
+                                    Grid.Row="2"
+                                    TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="Micro"
+                                    Text="{Binding Display_TotalCollectionValue}"/>
+                            </Grid>
+                            
+
+                            <Image
+                                Grid.Column="1"
+                                WidthRequest="128"
+                                Aspect="AspectFit"
+                                HorizontalOptions="End"
+                                Source="{Binding set_image}"/>
+                        </Grid>
+                    </Border>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--NO NETWORK - RETRY BUTTON-->
+        <VerticalStackLayout Grid.Row="0"
+                             x:Name="RetrySection"
+                             IsVisible="False"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="10">
+            <Label Text="No internet connection"/>
+            <Button Text="Retry"
+                    Clicked="RetryButton_Clicked"
+                    FontAttributes="Bold"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                    TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"/>
+        </VerticalStackLayout>
+
+        <!--LOADING INDICATOR-->
+        <controls:LoadingControl Grid.Row="0"
+                                 Grid.RowSpan="3"
+                                 x:Name="LoadingIndicator"
+                                 IsVisible="False"/>
+
+        <!--BANNER ADS-->
+        <ad_controls:MTAdView x:Name="myAds"
+                              Grid.Row="1"
+                              VerticalOptions="Center"
+                              Margin="10"
+                              IsVisible="True">
+            <ad_controls:MTAdView.HeightRequest>
+                <x:OnIdiom>
+                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                </x:OnIdiom>
+            </ad_controls:MTAdView.HeightRequest>
+        </ad_controls:MTAdView>
+    </Grid>
+    
+    
+</ContentPage>

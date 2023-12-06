@@ -27,16 +27,27 @@
 
     <!--FLYOUT INNER CONTENT-->
     <ShellContent
-        Title="Browse"
+        Title="Cards"
+        FlyoutIcon="cardspage_icon.png"
         ContentTemplate="{DataTemplate views:SetsPage}"
-        Icon="{AppThemeBinding Light={StaticResource home_icon_light_theme}, Dark={StaticResource home_icon_dark_theme}}"
         Route="MainPage"/>
 
     <ShellContent
+        Title="Products"
+        FlyoutIcon="productspage_icon.png"
+        ContentTemplate="{DataTemplate views:SealedProductMainPage}"
+        Route="SealedProductMainPage"/>
+
+    <ShellContent
         Title="Search"
+        FlyoutIcon="searchpage_icon.png"
         ContentTemplate="{DataTemplate views:SearchPage}"
-        Icon="{AppThemeBinding Light={StaticResource search_icon_light_theme}, Dark={StaticResource search_icon_dark_theme}}"
         Route="SearchPage"/>
+
+    <ShellContent
+        Title="Remove Ads"
+        FlyoutIcon="{AppThemeBinding Light={StaticResource ads_icon_light_theme}, Dark={StaticResource ads_icon_dark_theme}}"
+        ContentTemplate="{DataTemplate views:InAppPurchasePage}"/>
 
     <!--FLYOUT FOOTER-->
     <Shell.FlyoutFooter>
@@ -47,13 +58,13 @@
                    FontAttributes="Bold"
                    Margin="0,10,0,0"
                    TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}"
-                   Text="Joshua Jackson"/>
+                   Text="Numb Thumb Studios © 2023"/>
             <Label Grid.Row="1" 
                    FontSize="Micro" 
                    HorizontalOptions="Center"
                    Margin="0,0,0,10"
                    TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}"
-                   Text="RippeR_StudioS@yahoo.com"/>
+                   Text="NumbThumbStudios@yahoo.com"/>
         </Grid>
     </Shell.FlyoutFooter>
 

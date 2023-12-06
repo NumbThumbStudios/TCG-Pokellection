@@ -3,11 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
              xmlns:controls="clr-namespace:TCGPokellection.Controls"
+             xmlns:ad_controls="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMTAdmob"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="TCGPokellection.Views.SearchPage"
              Title="Search">
 
 
-    <Grid RowDefinitions="Auto,Auto,*"
+    <Grid RowDefinitions="Auto,Auto,*, Auto"
           Margin="20,20,20,5">
         
         <!--SEARCH BAR-->
@@ -59,8 +61,10 @@
                        FontSize="Large"
                        TextColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
                        HorizontalOptions="Center"/>
-                <Label Text="Enter a search term above to search all cards from our database" 
+                <Label Text="Enter a search term above to search all the cards and products from our database!" 
+                       Margin="60,0,60,0"
                        FontSize="Micro"
+                       HorizontalTextAlignment="Center"
                        HorizontalOptions="Center"/>
             </VerticalStackLayout>
 
@@ -88,15 +92,28 @@
                             <Grid RowDefinitions="Auto,Auto"
                                   ColumnDefinitions="24, *, 24">
 
+                                <!--IMAGES SHOWN BEFORE IMAGES ARE LOADED-->
                                 <Border Grid.Row="0"
                                         Grid.RowSpan="2"
                                         Grid.Column="0"
                                         StrokeThickness="0"
                                         BackgroundColor="Transparent"
                                         StrokeShape="RoundRectangle 2">
-                                    <Image Source="pokemon_card_back.png"/>
+                                    <Grid>
+                                        <Image Source="tcg_image_missing.png"
+                                           IsVisible="{Binding tcg_cards_is_product}">
+                                            <Image.Behaviors>
+                                                <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+                                            </Image.Behaviors>
+                                        </Image>
+                                        
+                                        <Image Source="pokemon_card_back.png"
+                                           IsVisible="{Binding ShowCardBack}"/>
+                                    </Grid>
+                                    
                                 </Border>
                                 
+                                <!--CARD/PRODUCT IMAGE-->
                                 <Border Grid.Row="0"
                                         Grid.RowSpan="2"
                                         Grid.Column="0"
@@ -106,7 +123,7 @@
                                     <Image Source="{Binding tcg_cards_image_url}"/>
                                 </Border>
                                 
-
+                                <!--CARD/PRODUCT NAME-->
                                 <Label Grid.Row="0"
                                        Grid.Column="1"
                                        Padding="8,0,0,0"
@@ -151,11 +168,41 @@
             </CollectionView>
         </Grid>
 
+        <!--NO NETWORK - RETRY BUTTON-->
+        <VerticalStackLayout Grid.Row="2"
+                             x:Name="RetrySection"
+                             IsVisible="False"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="10">
+            <Label Text="No internet connection"/>
+            <Button Text="Retry"
+                    Clicked="RetryButton_Clicked"
+                    FontAttributes="Bold"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                    TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"/>
+        </VerticalStackLayout>
+
         <!--LOADING INDICATOR-->
         <controls:LoadingControl Grid.Row="0"
                                  Grid.RowSpan="3"
                                  x:Name="LoadingIndicator"
                                  IsVisible="False"/>
+
+        <!--BANNER ADS-->
+        <ad_controls:MTAdView x:Name="myAds"
+                              Grid.Row="3"
+                              VerticalOptions="Center"
+                              Margin="10"
+                              IsVisible="True">
+            <ad_controls:MTAdView.HeightRequest>
+                <x:OnIdiom>
+                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                </x:OnIdiom>
+            </ad_controls:MTAdView.HeightRequest>
+        </ad_controls:MTAdView>
     </Grid>
     
     

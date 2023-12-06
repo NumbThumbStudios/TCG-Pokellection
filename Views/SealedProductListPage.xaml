@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:views="clr-namespace:TCGPokellection.Views"
+             xmlns:models="clr-namespace:DataLibrary.Models;assembly=DataLibrary"
+             xmlns:controls="clr-namespace:TCGPokellection.Controls"
+             xmlns:ad_controls="clr-namespace:Plugin.MauiMTAdmob.Controls;assembly=Plugin.MauiMTAdmob"
+             x:Class="TCGPokellection.Views.SealedProductListPage"
+             x:DataType="views:SealedProductListPage"
+             Title="">
+
+
+    <!--TITLE NAVBAR VIEW-->
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="*,*">
+            <Label Grid.Column="0"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}"
+                   Text="{Binding HeaderTitle}"/>
+
+            <Grid Grid.Column="1" 
+                  RowDefinitions="Auto,Auto"
+                  Margin="0,0,16,0"
+                  VerticalOptions="Center">
+                <Label Grid.Row="0" 
+                           TextColor="{AppThemeBinding Light={StaticResource Theme_Light2}, Dark={StaticResource Theme_Light3}}"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="End"
+                           Text="Collection Value:"/>
+
+                <Label Grid.Row="1"
+                           TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}"
+                           FontSize="Small"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="End"
+                           Text="{Binding TotalCollectionValue}"/>
+            </Grid>
+        </Grid>
+    </Shell.TitleView>
+    
+    <!--CONTENT-->
+    <Grid 
+        RowDefinitions="*,Auto"
+        Margin="4">
+        
+        <!--COLLECTION VIEW OF PRODUCTS-->
+        <CollectionView
+            ItemsSource="{Binding Products}"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedItem}">
+
+            <!--ITEM LAYOUT-->
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 SnapPointsType="None"
+                                 Span="3"/>
+            </CollectionView.ItemsLayout>
+            
+            <!--ITEM TEMPLATE-->
+            <CollectionView.ItemTemplate>
+                <DataTemplate
+                    x:DataType="models:CardsModel">
+                    <Border 
+                        Margin="4" 
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="0"
+                        HeightRequest="180">
+                        
+                        <Grid
+                            RowDefinitions="*,Auto,Auto">
+                            <!--PRODUCT IMAGE-->
+                            <Image
+                                Grid.Row="0"
+                                Aspect="AspectFill"
+                                Source="{Binding tcg_cards_image_url}"/>
+
+                            <!--IMAGE/TEXT UNDERLINE-->
+                            <BoxView
+                                Grid.Row="1"
+                                HeightRequest="1"
+                                Color="{AppThemeBinding Light={StaticResource Theme_Light3}, Dark={StaticResource Theme_Dark3}}"/>
+                            
+                            <!--PRODUCT TITLE-->
+                            <Label
+                                Grid.Row="2"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                                TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                                FontSize="Micro"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                Padding="10,4,10,4"
+                                FontAttributes="Bold"
+                                LineBreakMode="MiddleTruncation"
+                                MaxLines="2"
+                                Text="{Binding tcg_cards_name}"/>
+
+                            <!--COLLECTION BUTTON-->
+                            <Grid Grid.Row="0" 
+                                  Grid.RowSpan="3" 
+                                  RowDefinitions="*,*,*" 
+                                  ColumnDefinitions="*,.65*">
+                                <Border Grid.Column="1" BackgroundColor="Transparent" StrokeThickness="0">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="UpdateCollection_Tapped"/>
+                                    </Border.GestureRecognizers>
+
+                                    <Image Source="{Binding CollectionIconSource}" 
+                                           Opacity="1"
+                                           VerticalOptions="Start"/>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!--NO NETWORK - RETRY BUTTON-->
+        <VerticalStackLayout Grid.Row="0"
+                             x:Name="RetrySection"
+                             IsVisible="False"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="10">
+            <Label Text="No internet connection"/>
+            <Button Text="Retry"
+                    Clicked="RetryButton_Clicked"
+                    FontAttributes="Bold"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Primary_lightTheme}, Dark={StaticResource Primary}}"
+                    TextColor="{AppThemeBinding Light={StaticResource Theme_Light}, Dark={StaticResource Theme_Dark}}"/>
+        </VerticalStackLayout>
+
+        <!--LOADING INDICATOR-->
+        <controls:LoadingControl Grid.Row="0"
+                                 Grid.RowSpan="3"
+                                 x:Name="LoadingIndicator"
+                                 IsVisible="False"/>
+
+        <!--BANNER ADS-->
+        <ad_controls:MTAdView x:Name="myAds"
+                              Grid.Row="1"
+                              VerticalOptions="Center"
+                              Margin="10"
+                              IsVisible="True">
+            <ad_controls:MTAdView.HeightRequest>
+                <x:OnIdiom>
+                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                </x:OnIdiom>
+            </ad_controls:MTAdView.HeightRequest>
+        </ad_controls:MTAdView>
+    </Grid>
+    
+    
+</ContentPage>

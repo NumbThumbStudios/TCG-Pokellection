@@ -769,19 +769,19 @@
     <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\microsoft.windowsappsdk\1.2.221209.1\runtimes\win10-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.1.0\runtimes\win-x64\native\comerr64.dll">
+    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.2.0\runtimes\win-x64\native\comerr64.dll">
       <PackagePath>comerr64.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.1.0\runtimes\win-x64\native\gssapi64.dll">
+    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.2.0\runtimes\win-x64\native\gssapi64.dll">
       <PackagePath>gssapi64.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.1.0\runtimes\win-x64\native\k5sprt64.dll">
+    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.2.0\runtimes\win-x64\native\k5sprt64.dll">
       <PackagePath>k5sprt64.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.1.0\runtimes\win-x64\native\krb5_64.dll">
+    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.2.0\runtimes\win-x64\native\krb5_64.dll">
       <PackagePath>krb5_64.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.1.0\runtimes\win-x64\native\krbcc64.dll">
+    <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\mysql.data\8.2.0\runtimes\win-x64\native\krbcc64.dll">
       <PackagePath>krbcc64.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rippe\.nuget\packages\microsoft.bcl.asyncinterfaces\1.1.1\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll">
@@ -1450,11 +1450,17 @@
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\Azure.Identity.dll">
       <PackagePath>Azure.Identity.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\BouncyCastle.Cryptography.dll">
+      <PackagePath>BouncyCastle.Cryptography.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.Maui.dll">
       <PackagePath>CommunityToolkit.Maui.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.Maui.Core.dll">
       <PackagePath>CommunityToolkit.Maui.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\CommunityToolkit.Mvvm.dll">
+      <PackagePath>CommunityToolkit.Mvvm.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\Dapper.dll">
       <PackagePath>Dapper.dll</PackagePath>
@@ -1594,8 +1600,14 @@
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\MySql.Data.dll">
       <PackagePath>MySql.Data.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\BouncyCastle.Crypto.dll">
-      <PackagePath>BouncyCastle.Crypto.dll</PackagePath>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\Plugin.InAppBilling.dll">
+      <PackagePath>Plugin.InAppBilling.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\Plugin.MauiMtAdmob.dll">
+      <PackagePath>Plugin.MauiMtAdmob.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\System.IdentityModel.Tokens.Jwt.dll">
       <PackagePath>System.IdentityModel.Tokens.Jwt.dll</PackagePath>
@@ -1611,6 +1623,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\System.Speech.dll">
       <PackagePath>System.Speech.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\Xamarin.Essentials.dll">
+      <PackagePath>Xamarin.Essentials.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\R2R\ZstdSharp.dll">
       <PackagePath>ZstdSharp.dll</PackagePath>
@@ -1816,11 +1831,20 @@
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cardspage_icon.scale-100.png">
+      <PackagePath>cardspage_icon.scale-100.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cleartext_icon_black.scale-100.png">
       <PackagePath>cleartext_icon_black.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\cleartext_icon_white.scale-100.png">
       <PackagePath>cleartext_icon_white.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\flyout_ads_icon_darktheme.scale-100.png">
+      <PackagePath>flyout_ads_icon_darktheme.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\flyout_ads_icon_lighttheme.scale-100.png">
+      <PackagePath>flyout_ads_icon_lighttheme.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_icon_black.scale-100.png">
       <PackagePath>home_icon_black.scale-100.png</PackagePath>
@@ -1837,14 +1861,71 @@
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\pokemon_card_back.scale-100.png">
       <PackagePath>pokemon_card_back.scale-100.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\productspage_icon.scale-100.png">
+      <PackagePath>productspage_icon.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\products_icon_black.scale-100.png">
+      <PackagePath>products_icon_black.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\products_icon_white.scale-100.png">
+      <PackagePath>products_icon_white.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\searchpage_icon.scale-100.png">
+      <PackagePath>searchpage_icon.scale-100.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\search_icon_black.scale-100.png">
       <PackagePath>search_icon_black.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\search_icon_white.scale-100.png">
       <PackagePath>search_icon_white.scale-100.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_checkmark_checked.scale-100.png">
+      <PackagePath>spr_checkmark_checked.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_checkmark_unchecked.scale-100.png">
+      <PackagePath>spr_checkmark_unchecked.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_menu_white.scale-100.png">
+      <PackagePath>spr_menu_white.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_variants_checked.scale-100.png">
+      <PackagePath>spr_variants_checked.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_variants_label_1.scale-100.png">
+      <PackagePath>spr_variants_label_1.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_variants_label_2.scale-100.png">
+      <PackagePath>spr_variants_label_2.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_variants_label_3.scale-100.png">
+      <PackagePath>spr_variants_label_3.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_variants_label_4.scale-100.png">
+      <PackagePath>spr_variants_label_4.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_variants_label_5.scale-100.png">
+      <PackagePath>spr_variants_label_5.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\spr_variants_unchecked.scale-100.png">
+      <PackagePath>spr_variants_unchecked.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\switch_background_off.scale-100.png">
+      <PackagePath>switch_background_off.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\switch_background_on.scale-100.png">
+      <PackagePath>switch_background_on.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\switch_button_off.scale-100.png">
+      <PackagePath>switch_button_off.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\switch_button_on.scale-100.png">
+      <PackagePath>switch_button_on.scale-100.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\tcgplayer_icon.scale-100.png">
       <PackagePath>tcgplayer_icon.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\__Portfolio Git Projects__\TCG-Pokellection\obj\Release\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\tcg_image_missing.scale-100.png">
+      <PackagePath>tcg_image_missing.scale-100.png</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

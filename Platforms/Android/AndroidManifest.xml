@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.numbthumbstudios.tcgpokellection">
-	<application android:allowBackup="true" android:supportsRtl="true" android:label="TCG Pokellection" android:icon="@mipmap/appicon"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.numbthumbstudios.tcgpokellection" android:versionCode="5">
+	<application android:allowBackup="true" android:debuggable="true" android:supportsRtl="true" android:label="TCG Pokellection" android:icon="@mipmap/appicon">
+		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-6937310993044586~8420676848" />
+	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="31" />
+	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33" />
 </manifest>

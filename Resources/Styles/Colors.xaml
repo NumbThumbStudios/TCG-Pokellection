@@ -13,7 +13,7 @@
     <Color x:Key="Theme_Dark3">#444444</Color>
 
 
-    <Color x:Key="Primary_lightTheme">#2B0B98</Color>"
+    <Color x:Key="Primary_lightTheme">#2B0B98</Color>
     <Color x:Key="Primary">#61ff73</Color>
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
@@ -57,6 +57,10 @@
     <x:String x:Key="search_icon_light_theme">search_icon_black.png</x:String>
     <x:String x:Key="home_icon_dark_theme">home_icon_white.png</x:String>
     <x:String x:Key="home_icon_light_theme">home_icon_black.png</x:String>
+    <x:String x:Key="products_icon_dark_theme">products_icon_white.png</x:String>
+    <x:String x:Key="products_icon_light_theme">products_icon_black.png</x:String>
+    <x:String x:Key="ads_icon_dark_theme">flyout_ads_icon_darktheme.png</x:String>
+    <x:String x:Key="ads_icon_light_theme">flyout_ads_icon_lighttheme.png</x:String>
     <x:String x:Key="cleartext_icon_dark_theme">cleartext_icon_white.png</x:String>
     <x:String x:Key="cleartext_icon_light_theme">cleartext_icon_black.png</x:String>
 

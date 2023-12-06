@@ -1,7 +1,9 @@
 obj\Release\net7.0-android\android-arm\aot\Azure.Core.dll.so
 obj\Release\net7.0-android\android-arm\aot\Azure.Identity.dll.so
+obj\Release\net7.0-android\android-arm\aot\BouncyCastle.Cryptography.dll.so
 obj\Release\net7.0-android\android-arm\aot\CommunityToolkit.Maui.dll.so
 obj\Release\net7.0-android\android-arm\aot\CommunityToolkit.Maui.Core.dll.so
+obj\Release\net7.0-android\android-arm\aot\CommunityToolkit.Mvvm.dll.so
 obj\Release\net7.0-android\android-arm\aot\Dapper.dll.so
 obj\Release\net7.0-android\android-arm\aot\Google.Protobuf.dll.so
 obj\Release\net7.0-android\android-arm\aot\K4os.Compression.LZ4.dll.so
@@ -28,7 +30,9 @@ obj\Release\net7.0-android\android-arm\aot\Microsoft.IdentityModel.Tokens.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.Maui.Graphics.dll.so
 obj\Release\net7.0-android\android-arm\aot\Microsoft.SqlServer.Server.dll.so
 obj\Release\net7.0-android\android-arm\aot\MySql.Data.dll.so
-obj\Release\net7.0-android\android-arm\aot\BouncyCastle.Crypto.dll.so
+obj\Release\net7.0-android\android-arm\aot\Newtonsoft.Json.dll.so
+obj\Release\net7.0-android\android-arm\aot\Plugin.InAppBilling.dll.so
+obj\Release\net7.0-android\android-arm\aot\Plugin.MauiMtAdmob.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Configuration.ConfigurationManager.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.IdentityModel.Tokens.Jwt.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.IO.Pipelines.dll.so
@@ -36,6 +40,7 @@ obj\Release\net7.0-android\android-arm\aot\System.Memory.Data.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Runtime.Caching.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Security.Cryptography.ProtectedData.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Security.Permissions.dll.so
+obj\Release\net7.0-android\android-arm\aot\Xamarin.Android.Google.BillingClient.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.Activity.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.AppCompat.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.AppCompat.AppCompatResources.dll.so
@@ -59,11 +64,14 @@ obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.Navigation.Runtime.d
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.Navigation.UI.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.RecyclerView.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.SavedState.dll.so
+obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.Security.SecurityCrypto.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.SwipeRefreshLayout.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.ViewPager.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.ViewPager2.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.AndroidX.Window.dll.so
+obj\Release\net7.0-android\android-arm\aot\Xamarin.Essentials.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.Google.Android.Material.dll.so
+obj\Release\net7.0-android\android-arm\aot\Xamarin.GooglePlayServices.Ads.Lite.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.Kotlin.StdLib.dll.so
 obj\Release\net7.0-android\android-arm\aot\Xamarin.KotlinX.Coroutines.Core.Jvm.dll.so
 obj\Release\net7.0-android\android-arm\aot\ZstdSharp.dll.so
@@ -79,6 +87,7 @@ obj\Release\net7.0-android\android-arm\aot\System.ComponentModel.Primitives.dll.
 obj\Release\net7.0-android\android-arm\aot\System.ComponentModel.TypeConverter.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.ComponentModel.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Console.dll.so
+obj\Release\net7.0-android\android-arm\aot\System.Core.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Data.Common.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Diagnostics.Debug.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Diagnostics.DiagnosticSource.dll.so
@@ -110,6 +119,7 @@ obj\Release\net7.0-android\android-arm\aot\System.Net.Sockets.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Net.WebClient.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Net.WebHeaderCollection.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Numerics.Vectors.dll.so
+obj\Release\net7.0-android\android-arm\aot\System.Numerics.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.ObjectModel.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Private.DataContractSerialization.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Private.Uri.dll.so
@@ -158,6 +168,7 @@ obj\Release\net7.0-android\android-arm\aot\System.Xml.ReaderWriter.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Xml.XDocument.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.Xml.XmlSerializer.dll.so
 obj\Release\net7.0-android\android-arm\aot\System.dll.so
+obj\Release\net7.0-android\android-arm\aot\mscorlib.dll.so
 obj\Release\net7.0-android\android-arm\aot\netstandard.dll.so
 obj\Release\net7.0-android\android-arm\aot\Java.Interop.dll.so
 obj\Release\net7.0-android\android-arm\aot\Mono.Android.dll.so
