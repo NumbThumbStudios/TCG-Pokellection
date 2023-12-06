@@ -13,11 +13,11 @@ namespace DataLibrary
     public class DataAccess
     {
         #region FIELDS / PROPERTIES
-        public string Server { get; set; } = "2.57.91.5";
-        public string DatabaseName { get; set; } = "u826675553_Pokellection";
-        public string UserName { get; set; } = "u826675553_Josh";
-        public string Password { get; set; } = "MyLeftShoe22!";
-        public string MySqlConnectionString { get; set; }
+        private readonly string server = "2.57.91.5";
+        private readonly string database_name = "u826675553_Pokellection";
+        private readonly string user_name = "u826675553_Josh";
+        private readonly string password = "MyLeftShoe22!";
+        private readonly string MySqlConnectionString;
         #endregion
 
 
@@ -26,7 +26,7 @@ namespace DataLibrary
         #region CONSTRUCTORS
         public DataAccess()
         {
-            MySqlConnectionString = string.Format("Server={0};Database={1};Uid={2};Pwd={3}", Server, DatabaseName, UserName, Password);
+            MySqlConnectionString = string.Format("Server={0};Database={1};Uid={2};Pwd={3}", server, database_name, user_name, password);
         }
         #endregion
 
